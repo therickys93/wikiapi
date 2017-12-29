@@ -2,6 +2,9 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 
+targetCompatibility = '1.7'
+sourceCompatibility = '1.7'
+
 jacocoTestReport {
     reports {
         xml.enabled true
