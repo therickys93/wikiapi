@@ -3,3 +3,23 @@ jdk:
 - oraclejdk8
 script:
 - ./gradlew clean check jacocoTestReport
+after_success:
+- sh set_tags.sh
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+deploy:
+  provider: releases
+  api_key:
+    secure: 1/tbtKHjU0UXVsKzeHeNNnf5M5g8EpoOXBU2q4S8H3QNYU6WTMEqvKG22eo2fGyBz0TOE4UYk60HbFloXXoEv8gDFLqsI3mTqEZEM1QE/2V5sNnZnrVUMMEChWkVVpfRLtcds5j4Ifg4Wn/6N46/Bnfr+9PSblneDCUJV4cRfqh1sOUZQATsC27agU7ofmFcp535acY24HhYl+jSAaAgyRDaat/5wA4Fig8CwB5D+tq3Z332JeaYNA5IvfnjgPugKuXj3TuFm+hRcFUNNryx5yeM3U2qoOWZZH1HaBDiO4fk7Q9O02hhP/s/apId9zwRhPynYtHdBf+BN7iEf3ruU8g6CF5ZpGu5dcXCtzNhKvGBhqnv6OxEwanrAypHcqVtPQz8TGe6B/z1vQnP/c/TQtXomg3sK49rqUTH0BQwZrdVSx7neg42am+p30lVnlQEsw+M6j+aXfZdM/ElUOyWATEpJ39nXRsS/KoIgxmSBJrzua0TRW7R2SQj2+bZfipuvjxHD+/HCTQEZIkH+E28M9f8yRbs1+c1A5t2K5zxx8CjrkPR1qAe9tuygbdqPJsaBQppx9PHM7JTC7Tig+z0w4qOJinjBs2cjZ1POxQrrpcRAx9WKUgVDtjMEiGBWcgz5NWYaHjoQIOVfX8poNQ6WPxQV/slF4nzH9bJjkJ4CYs=
+  file: 'build/libs/*wikiapi*.jar'
+  file_glob: "true"
+  skip_cleanup: true
+  on:
+    branch: master
+    repo: therickys93/wikiapi
