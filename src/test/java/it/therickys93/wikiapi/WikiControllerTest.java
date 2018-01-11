@@ -15,10 +15,13 @@ public class WikiControllerTest {
 	public void parseResponse(){
 		Response status = Response.parseSuccess("{\"success\":true}");
 		assertTrue(status.ok());
+		assertNull(status.message());
 		status = Response.parseSuccess("{\"success\":false}");
 		assertFalse(status.ok());
+		assertNull(status.message());
 		status = Response.parseSuccess("{\"success\":true,\"status\":\"00\"}");
 		assertTrue(status.ok());
+		assertEquals("00", status.message());
 	}
 	
 	public void testHome() throws IOException{
