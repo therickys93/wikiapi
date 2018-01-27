@@ -1,4 +1,4 @@
-package it.therickys93.wikiapi;
+package it.therickys93.wikiapi.controller;
 
 public class Home implements Sendable {
 	private String method;

@@ -1,4 +1,4 @@
-package it.therickys93.wikiapi;
+package it.therickys93.wikiapi.controller;
 
 import java.io.IOException;
 
@@ -6,12 +6,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class WikiController {
+public class WikiRequest {
 
 	private String server;
 	private OkHttpClient client;
 	
-	public WikiController(String server) {
+	public WikiRequest(String server) {
 		this.server = server;
 		this.client = new OkHttpClient();
 	}

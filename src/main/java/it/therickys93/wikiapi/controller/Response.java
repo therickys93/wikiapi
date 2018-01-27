@@ -1,4 +1,4 @@
-package it.therickys93.wikiapi;
+package it.therickys93.wikiapi.controller;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

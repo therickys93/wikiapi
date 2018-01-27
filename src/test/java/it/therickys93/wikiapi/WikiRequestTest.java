@@ -4,7 +4,15 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import org.junit.Test;
 
-public class WikiControllerTest {
+import it.therickys93.wikiapi.controller.Home;
+import it.therickys93.wikiapi.controller.Off;
+import it.therickys93.wikiapi.controller.On;
+import it.therickys93.wikiapi.controller.Reset;
+import it.therickys93.wikiapi.controller.Response;
+import it.therickys93.wikiapi.controller.Status;
+import it.therickys93.wikiapi.controller.WikiRequest;
+
+public class WikiRequestTest {
 	
 	@Test
 	public void testOne(){
@@ -25,37 +33,37 @@ public class WikiControllerTest {
 	}
 	
 	public void testHome() throws IOException{
-		WikiController wikicontroller = new WikiController("http://localhost:3000");
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
 		String response = wikicontroller.execute(new Home());
 		assertEquals("", response);
 	}
 	
 	public void testReset() throws IOException{
-		WikiController wikicontroller = new WikiController("http://localhost:3000");
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
 		String response = wikicontroller.execute(new Reset("arduino"));
 		assertEquals("", response);
 	}
 	
 	public void testStatus() throws IOException{
-		WikiController wikicontroller = new WikiController("http://localhost:3000");
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
 		String response = wikicontroller.execute(new Status("key"));
 		assertEquals("", response);
 	}
 	
 	public void testOn() throws IOException{
-		WikiController wikicontroller = new WikiController("http://localhost:3000");
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
 		String response = wikicontroller.execute(new On("arduino", 0));
 		assertEquals("", response);
 	}
 	
 	public void testOff() throws IOException{
-		WikiController wikicontroller = new WikiController("http://localhost:3000");
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
 		String response = wikicontroller.execute(new Off("arduino", 1));
 		assertEquals("", response);
 	}
 	
 	public void testUsage() throws IOException{
-		WikiController wikicontroller = new WikiController("http://localhost:3000");
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
 		String response = wikicontroller.execute(new Home());
 		assertEquals("", response);
 		Response status = Response.parseSuccess(response);
