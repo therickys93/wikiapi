@@ -65,4 +65,8 @@ public class House {
 		return null;
 	}
 
+	public Led getLedAt(int i) {
+		return this.leds.get(i);
+	}
+
 }

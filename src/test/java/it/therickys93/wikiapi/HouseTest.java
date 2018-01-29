@@ -80,4 +80,13 @@ public class HouseTest {
 		assertEquals("Led [name=luce gialla, key=arduino, position=11]", yellow.toString());
 	}
 	
+	@Test
+	public void testGetLedByPosition(){
+		House house = House.fromJson("[{\"name\":\"luce rossa\",\"key\":\"arduino\",\"position\":10},"
+				+ "{\"name\":\"luce gialla\",\"key\":\"arduino\",\"position\":11}]");
+		assertEquals(2, house.getLedCount());
+		assertEquals("luce rossa", house.getLedAt(0).getName());
+		assertEquals("luce gialla", house.getLedAt(1).getName());
+	}
+	
 }
