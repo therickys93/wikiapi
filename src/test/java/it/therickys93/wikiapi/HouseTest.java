@@ -89,4 +89,22 @@ public class HouseTest {
 		assertEquals("luce gialla", house.getLedAt(1).getName());
 	}
 	
+	@Test
+	public void testRemoveLedByName(){
+		House house = House.fromJson("[{\"name\":\"luce rossa\",\"key\":\"arduino\",\"position\":10},"
+				+ "{\"name\":\"luce gialla\",\"key\":\"arduino\",\"position\":11}]");
+		assertEquals(2, house.getLedCount());
+		assertTrue(house.removeLedByName("luce rossa"));
+		assertEquals(1, house.getLedCount());
+	}
+	
+	@Test
+	public void testRemoveLedByPosition() {
+		House house = House.fromJson("[{\"name\":\"luce rossa\",\"key\":\"arduino\",\"position\":10},"
+				+ "{\"name\":\"luce gialla\",\"key\":\"arduino\",\"position\":11}]");
+		assertEquals(2, house.getLedCount());
+		assertTrue(house.removeLedAt(0));
+		assertEquals(1, house.getLedCount());
+	}
+	
 }

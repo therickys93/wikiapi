@@ -69,4 +69,14 @@ public class House {
 		return this.leds.get(i);
 	}
 
+	public boolean removeLedByName(String name) {
+		Led led = this.getLedByName(name);
+		return this.leds.remove(led);
+	}
+
+	public boolean removeLedAt(int index) {
+		Led led = this.leds.remove(index);
+		return (led != null) ? true : false;
+	}
+
 }
