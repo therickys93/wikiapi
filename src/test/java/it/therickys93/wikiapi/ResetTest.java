@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import it.therickys93.wikiapi.controller.Reset;
+
 public class ResetTest {
 
 	@Test

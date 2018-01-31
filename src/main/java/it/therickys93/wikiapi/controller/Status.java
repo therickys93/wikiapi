@@ -1,13 +1,13 @@
-package it.therickys93.wikiapi;
+package it.therickys93.wikiapi.controller;
 
-public class On implements Sendable {
+public class Status implements Sendable {
 
 	private String method;
 	private String endpoint;
 	
-	public On(String key, int led) {
+	public Status(String key) {
 		this.method = "GET";
-		this.endpoint = "/on/" + key + "/" + led;
+		this.endpoint = "/status/" + key;
 	}
 
 	@Override

@@ -1,4 +1,6 @@
-package it.therickys93.wikiapi;
+package it.therickys93.wikiapi.controller;
+
+import it.therickys93.wikiapi.model.Led;
 
 public class Off implements Sendable {
 
@@ -8,6 +10,10 @@ public class Off implements Sendable {
 	public Off(String key, int led) {
 		this.method = "GET";
 		this.endpoint = "/off/" + key + "/" + led;
+	}
+
+	public Off(Led led) {
+		this(led.getKey(), led.getPosition());
 	}
 
 	@Override
