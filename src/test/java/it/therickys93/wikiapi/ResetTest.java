@@ -20,4 +20,10 @@ public class ResetTest {
 		assertEquals("/reset/key", reset.endpoint());
 	}
 	
+	@Test
+	public void testJson(){
+		Reset reset = new Reset("key");
+		assertNull(reset.toJson());
+	}
+	
 }

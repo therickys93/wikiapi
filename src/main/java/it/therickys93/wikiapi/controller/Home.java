@@ -1,5 +1,7 @@
 package it.therickys93.wikiapi.controller;
 
+import com.google.gson.JsonElement;
+
 public class Home implements Sendable {
 	private String method;
 	private String endpoint;
@@ -17,5 +19,10 @@ public class Home implements Sendable {
 	@Override
 	public String method() {
 		return this.method;
+	}
+
+	@Override
+	public JsonElement toJson() {
+		return null;
 	}
 }

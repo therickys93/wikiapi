@@ -2,22 +2,20 @@ package it.therickys93.wikiapi.controller;
 
 import com.google.gson.JsonElement;
 
-import it.therickys93.wikiapi.model.Led;
+import it.therickys93.wikiapi.model.House;
 
-public class On implements Sendable {
+public class Upload implements Sendable {
 
 	private String method;
 	private String endpoint;
+	private House house;
 	
-	public On(String key, int led) {
-		this.method = "GET";
-		this.endpoint = "/on/" + key + "/" + led;
+	public Upload(House house){
+		this.endpoint = "/upload";
+		this.method = "POST";
+		this.house = house;
 	}
-
-	public On(Led led) {
-		this(led.getKey(), led.getPosition());
-	}
-
+	
 	@Override
 	public String endpoint() {
 		return this.endpoint;
@@ -30,7 +28,7 @@ public class On implements Sendable {
 
 	@Override
 	public JsonElement toJson() {
-		return null;
+		return this.house.toJson();
 	}
 
 }

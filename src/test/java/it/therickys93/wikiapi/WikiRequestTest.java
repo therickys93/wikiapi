@@ -4,13 +4,16 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import org.junit.Test;
 
+import it.therickys93.wikiapi.controller.Download;
 import it.therickys93.wikiapi.controller.Home;
 import it.therickys93.wikiapi.controller.Off;
 import it.therickys93.wikiapi.controller.On;
 import it.therickys93.wikiapi.controller.Reset;
 import it.therickys93.wikiapi.controller.Response;
 import it.therickys93.wikiapi.controller.Status;
+import it.therickys93.wikiapi.controller.Upload;
 import it.therickys93.wikiapi.controller.WikiRequest;
+import it.therickys93.wikiapi.model.House;
 
 public class WikiRequestTest {
 	
@@ -68,5 +71,25 @@ public class WikiRequestTest {
 		assertEquals("", response);
 		Response status = Response.parseSuccess(response);
 		assertTrue(status.ok());
+	}
+	
+	public void testDownload() throws IOException {
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		String response = wikicontroller.execute(new Download());
+		House house = House.fromJson(response);
+		assertNotEquals("", house.toJson().toString());
+	}
+	
+	public void testUpload() throws IOException {
+		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		String response = wikicontroller.execute(new Upload(createHouse()));
+		assertEquals("", response);
+		Response status = Response.parseSuccess(response);
+		assertTrue(status.ok());
+	}
+	
+	private House createHouse() {
+		return House.fromJson("[{\"name\":\"luce rossa\",\"key\":\"arduino\",\"position\":10},"
+				+ "{\"name\":\"luce gialla\",\"key\":\"arduino\",\"position\":11}]");
 	}
 }

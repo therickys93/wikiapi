@@ -2,22 +2,16 @@ package it.therickys93.wikiapi.controller;
 
 import com.google.gson.JsonElement;
 
-import it.therickys93.wikiapi.model.Led;
-
-public class On implements Sendable {
+public class Download implements Sendable {
 
 	private String method;
 	private String endpoint;
 	
-	public On(String key, int led) {
+	public Download(){
 		this.method = "GET";
-		this.endpoint = "/on/" + key + "/" + led;
+		this.endpoint = "/download";
 	}
-
-	public On(Led led) {
-		this(led.getKey(), led.getPosition());
-	}
-
+	
 	@Override
 	public String endpoint() {
 		return this.endpoint;
