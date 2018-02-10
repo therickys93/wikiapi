@@ -1,5 +1,7 @@
 package it.therickys93.wikiapi.controller;
 
+import com.google.gson.JsonElement;
+
 import it.therickys93.wikiapi.model.Led;
 
 public class Off implements Sendable {
@@ -24,6 +26,11 @@ public class Off implements Sendable {
 	@Override
 	public String method() {
 		return this.method;
+	}
+
+	@Override
+	public JsonElement toJson() {
+		return null;
 	}
 
 }

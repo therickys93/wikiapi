@@ -1,5 +1,7 @@
 package it.therickys93.wikiapi.controller;
 
+import com.google.gson.JsonElement;
+
 public class Download implements Sendable {
 
 	private String method;
@@ -18,6 +20,11 @@ public class Download implements Sendable {
 	@Override
 	public String method() {
 		return this.method;
+	}
+
+	@Override
+	public JsonElement toJson() {
+		return null;
 	}
 
 }
