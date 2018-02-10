@@ -20,4 +20,10 @@ public class HomeTest {
 		assertEquals("/", home.endpoint());
 	}
 	
+	@Test
+	public void testJson(){
+		Home home = new Home();
+		assertNull(home.toJson());
+	}
+	
 }

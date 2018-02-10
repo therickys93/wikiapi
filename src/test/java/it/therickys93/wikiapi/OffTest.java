@@ -21,6 +21,12 @@ public class OffTest {
 	}
 	
 	@Test
+	public void testJson(){
+		Off off = new Off("key", 2);
+		assertNull(off.toJson());
+	}
+	
+	@Test
 	public void testWithLedContructor() {
 		Off off = new Off(createLed());
 		assertEquals("/off/key/2", off.endpoint());

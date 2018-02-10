@@ -26,6 +26,12 @@ public class OnTest {
 		assertEquals("/on/key/1", on.endpoint());
 	}
 	
+	@Test
+	public void testJson(){
+		On on = new On("key", 2);
+		assertNull(on.toJson());
+	}
+	
 	private Led createLed(){
 		Led led = new Led();
 		led.setName("name");

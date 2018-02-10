@@ -19,4 +19,10 @@ public class StatusTest {
 		assertEquals("/status/key", status.endpoint());
 	}
 	
+	@Test
+	public void testJson(){
+		Status status = new Status("key");
+		assertNull(status.toJson());
+	}
+	
 }
