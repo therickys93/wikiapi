@@ -1,49 +1,28 @@
 package it.therickys93.wikiapi.controller;
 
-import java.io.IOException;
-
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class WikiRequest {
 
-	private static final String APPLICATION_JSON = "application/json; charset=utf-8";
-	private String server;
-	private OkHttpClient client;
-	
-	public WikiRequest(String server) {
-		this.server = server;
-		this.client = new OkHttpClient();
+	private static final String REQUEST = "request";
+
+	public static String readMessage(String request) {
+		try {
+			JsonParser parser = new JsonParser();
+			JsonObject jsonRequest = (JsonObject) parser.parse(request);
+			String message = jsonRequest.get(REQUEST).getAsString();
+			return message;
+		} catch (Exception e){
+			return null;
+		}
+		
 	}
 
-	public String execute(Sendable sendable) throws IOException {
-		if(sendable.method() == "GET")
-			return this.getMethod(sendable);
-		else if(sendable.method() == "POST")
-			return this.postMethod(sendable);
-		return null;
-	}
-	
-	private String getMethod(Sendable request) throws IOException {
-		Request requestAdd = new Request.Builder().url(this.server + request.endpoint()).build();
-		Response response = client.newCall(requestAdd).execute();
-		return response.body().string();
-	}
-	
-	private String postMethod(Sendable request) throws IOException {
-		final MediaType JSON = MediaType.parse(APPLICATION_JSON);
-		RequestBody body = null;
-		if(request.toJson() == null){
-			body = RequestBody.create(JSON, "");
-		} else {
-			body = RequestBody.create(JSON, request.toJson().toString());
-		}
-		Request requestAdd = new Request.Builder().url(this.server + request.endpoint()).post(body).build();
-		Response response = client.newCall(requestAdd).execute();
-		return response.body().string();
+	public static String writeMessage(String message) {
+		JsonObject json = new JsonObject();
+		json.addProperty(REQUEST, message);
+		return json.toString();
 	}
 
 }
