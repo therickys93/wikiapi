@@ -15,7 +15,7 @@ import it.therickys93.wikiapi.controller.Upload;
 import it.therickys93.wikiapi.controller.WikiController;
 import it.therickys93.wikiapi.model.House;
 
-public class WikiRequestTest {
+public class WikiControllerTest {
 	
 	@Test
 	public void testOne(){
