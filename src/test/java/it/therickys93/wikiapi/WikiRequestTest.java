@@ -12,7 +12,7 @@ import it.therickys93.wikiapi.controller.Reset;
 import it.therickys93.wikiapi.controller.Response;
 import it.therickys93.wikiapi.controller.Status;
 import it.therickys93.wikiapi.controller.Upload;
-import it.therickys93.wikiapi.controller.WikiRequest;
+import it.therickys93.wikiapi.controller.WikiController;
 import it.therickys93.wikiapi.model.House;
 
 public class WikiRequestTest {
@@ -36,37 +36,37 @@ public class WikiRequestTest {
 	}
 	
 	public void testHome() throws IOException{
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Home());
 		assertEquals("", response);
 	}
 	
 	public void testReset() throws IOException{
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Reset("arduino"));
 		assertEquals("", response);
 	}
 	
 	public void testStatus() throws IOException{
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Status("key"));
 		assertEquals("", response);
 	}
 	
 	public void testOn() throws IOException{
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new On("arduino", 0));
 		assertEquals("", response);
 	}
 	
 	public void testOff() throws IOException{
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Off("arduino", 1));
 		assertEquals("", response);
 	}
 	
 	public void testUsage() throws IOException{
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Home());
 		assertEquals("", response);
 		Response status = Response.parseSuccess(response);
@@ -74,14 +74,14 @@ public class WikiRequestTest {
 	}
 	
 	public void testDownload() throws IOException {
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Download());
 		House house = House.fromJson(response);
 		assertNotEquals("", house.toJson().toString());
 	}
 	
 	public void testUpload() throws IOException {
-		WikiRequest wikicontroller = new WikiRequest("http://localhost:3000");
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Upload(createHouse()));
 		assertEquals("", response);
 		Response status = Response.parseSuccess(response);

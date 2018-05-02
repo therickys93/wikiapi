@@ -8,13 +8,13 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class WikiRequest {
+public class WikiController {
 
 	private static final String APPLICATION_JSON = "application/json; charset=utf-8";
 	private String server;
 	private OkHttpClient client;
 	
-	public WikiRequest(String server) {
+	public WikiController(String server) {
 		this.server = server;
 		this.client = new OkHttpClient();
 	}
