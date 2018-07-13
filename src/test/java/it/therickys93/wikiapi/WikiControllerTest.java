@@ -8,6 +8,7 @@ import it.therickys93.wikiapi.controller.Download;
 import it.therickys93.wikiapi.controller.Home;
 import it.therickys93.wikiapi.controller.Off;
 import it.therickys93.wikiapi.controller.On;
+import it.therickys93.wikiapi.controller.OpenClose;
 import it.therickys93.wikiapi.controller.Reset;
 import it.therickys93.wikiapi.controller.Response;
 import it.therickys93.wikiapi.controller.Status;
@@ -62,6 +63,12 @@ public class WikiControllerTest {
 	public void testOff() throws IOException{
 		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Off("arduino", 1));
+		assertEquals("", response);
+	}
+	
+	public void testOpenClose() throws IOException {
+		WikiController wikicontroller = new WikiController("http://localhost:3000");
+		String response = wikicontroller.execute(new OpenClose("arduino", 1));
 		assertEquals("", response);
 	}
 	
