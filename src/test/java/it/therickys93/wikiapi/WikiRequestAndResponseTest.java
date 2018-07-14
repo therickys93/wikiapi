@@ -39,6 +39,7 @@ public class WikiRequestAndResponseTest {
 	@Test
 	public void testReadMessage(){
 		assertEquals("ciao", WikiResponse.readMessage("{\"response\":\"ciao\"}"));
+		assertNull(WikiResponse.readMessage("{\"pippo\":\"ciao\"}"));
 	}
 	
 	@Test

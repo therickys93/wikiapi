@@ -105,6 +105,8 @@ public class HouseTest {
 		assertEquals(2, house.getLedCount());
 		assertTrue(house.removeLedAt(0));
 		assertEquals(1, house.getLedCount());
+		assertFalse(house.removeLedAt(2));
+		assertEquals(1, house.getLedCount());
 	}
 	
 }

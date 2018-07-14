@@ -75,8 +75,12 @@ public class House {
 	}
 
 	public boolean removeLedAt(int index) {
-		Led led = this.leds.remove(index);
-		return (led != null) ? true : false;
+		try {
+			this.leds.remove(index);
+			return true;
+		} catch (Exception e){
+			return false;
+		}
 	}
 
 }
