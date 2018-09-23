@@ -3,6 +3,7 @@ jdk:
 - oraclejdk8
 script:
 - ./gradlew clean check jacocoTestReport
+- bash <(curl -s https://codecov.io/bash)
 after_success:
 - sh set_tags.sh
 before_cache:
