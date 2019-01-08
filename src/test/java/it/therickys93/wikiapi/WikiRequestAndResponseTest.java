@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -16,6 +17,15 @@ public class WikiRequestAndResponseTest {
 	@Test
 	public void testReadRequest() {
 		assertEquals("ciao", WikiRequest.readMessage("{\"request\":\"ciao\"}"));
+		assertNull(WikiRequest.readMessage(""));
+	}
+	
+	@Test
+	public void testReadRequestWithUserID(){
+		List<String> response = WikiRequest.readMessageWithUserID("{\"request\":\"ciao\","
+				+ " \"user_id\":\"therickys93\"}");
+		assertEquals("ciao", response.get(0));
+		assertEquals("therickys93", response.get(1));
 		assertNull(WikiRequest.readMessage(""));
 	}
 	
