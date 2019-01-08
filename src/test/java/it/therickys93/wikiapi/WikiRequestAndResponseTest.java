@@ -26,7 +26,7 @@ public class WikiRequestAndResponseTest {
 				+ " \"user_id\":\"therickys93\"}");
 		assertEquals("ciao", response.get(0));
 		assertEquals("therickys93", response.get(1));
-		assertNull(WikiRequest.readMessage(""));
+		assertNull(WikiRequest.readMessageWithUserID(""));
 	}
 	
 	@Test
