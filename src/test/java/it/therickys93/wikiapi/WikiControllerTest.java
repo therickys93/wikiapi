@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import it.therickys93.wikiapi.controller.Download;
 import it.therickys93.wikiapi.controller.Home;
+import it.therickys93.wikiapi.controller.Init;
 import it.therickys93.wikiapi.controller.Off;
 import it.therickys93.wikiapi.controller.On;
 import it.therickys93.wikiapi.controller.OpenClose;
@@ -45,6 +46,12 @@ public class WikiControllerTest {
 	public void testReset() throws IOException{
 		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new Reset("arduino"));
+		assertEquals("", response);
+	}
+	
+	public void testInit() throws IOException{
+		WikiController wikicontroller = new WikiController("http://localhost:8080");
+		String response = wikicontroller.execute(new Init("arduino"));
 		assertEquals("", response);
 	}
 	
