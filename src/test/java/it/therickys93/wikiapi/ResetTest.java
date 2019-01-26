@@ -26,4 +26,28 @@ public class ResetTest {
 		assertNull(reset.toJson());
 	}
 	
+	@Test
+	public void testType() {
+		Reset reset = new Reset("key");
+		assertEquals("Reset", reset.getType());
+	}
+	
+	@Test
+	public void testLed() {
+		Reset reset = new Reset("key");
+		assertNull(reset.getLed());
+	}
+	
+	@Test
+	public void testKey() {
+		Reset reset = new Reset("key");
+		assertEquals("key", reset.getKey());
+	}
+	
+	@Test
+	public void testPosition() {
+		Reset reset = new Reset("key");
+		assertEquals(-1, reset.getPosition());
+	}
+	
 }

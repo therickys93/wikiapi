@@ -1,6 +1,8 @@
 package it.therickys93.wikiapi;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
 import it.therickys93.wikiapi.controller.Upload;
@@ -30,6 +32,30 @@ public class UploadTest {
 	private House createHouse() {
 		return House.fromJson("[{\"name\":\"luce rossa\",\"key\":\"arduino\",\"position\":10},"
 				+ "{\"name\":\"luce gialla\",\"key\":\"arduino\",\"position\":11}]");
+	}
+	
+	@Test
+	public void testType() {
+		Upload upload = new Upload(null);
+		assertEquals("Carica", upload.getType());
+	}
+	
+	@Test
+	public void testLed() {
+		Upload upload = new Upload(null);
+		assertNull(upload.getLed());
+	}
+	
+	@Test
+	public void testKey() {
+		Upload upload = new Upload(null);
+		assertNull(upload.getKey());
+	}
+	
+	@Test
+	public void testPosition() {
+		Upload upload = new Upload(null);
+		assertEquals(-1, upload.getPosition());
 	}
 	
 }

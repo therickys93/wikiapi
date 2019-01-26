@@ -26,4 +26,27 @@ public class HomeTest {
 		assertNull(home.toJson());
 	}
 	
+	@Test
+	public void testType() {
+		Home home = new Home();
+		assertEquals("Home", home.getType());
+	}
+	
+	@Test
+	public void testLed() {
+		Home home = new Home();
+		assertNull(home.getLed());
+	}
+	
+	@Test
+	public void testKey() {
+		Home home = new Home();
+		assertNull(home.getKey());
+	}
+	
+	@Test
+	public void testPosition(){
+		Home home = new Home();
+		assertEquals(-1, home.getPosition());
+	}
 }
