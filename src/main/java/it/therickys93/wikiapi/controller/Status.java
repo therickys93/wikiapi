@@ -14,7 +14,7 @@ public class Status implements Sendable {
 	public Status(String key) {
 		this.method = "GET";
 		this.endpoint = "/status/" + key;
-		this.type = "Reset";
+		this.type = "Status";
 		this.led = null;
 		this.key = key;
 		this.position = -1;

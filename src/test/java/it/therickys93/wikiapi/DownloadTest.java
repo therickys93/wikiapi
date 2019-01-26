@@ -27,4 +27,28 @@ public class DownloadTest {
 		assertNull(download.toJson());
 	}
 	
+	@Test
+	public void testType() {
+		Download download = new Download();
+		assertEquals("Scarica", download.getType());
+	}
+	
+	@Test
+	public void testLed() {
+		Download download = new Download();
+		assertNull(download.getLed());
+	}
+	
+	@Test
+	public void testKey() {
+		Download download = new Download();
+		assertNull(download.getKey());
+	}
+	
+	@Test
+	public void testPosition() {
+		Download download = new Download();
+		assertEquals(-1, download.getPosition());
+	}
+	
 }

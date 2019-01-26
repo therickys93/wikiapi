@@ -27,4 +27,27 @@ public class InitTest {
 		assertNull(init.toJson());
 	}
 	
+	@Test
+	public void testType() {
+		Init init = new Init("key");
+		assertEquals("Init", init.getType());
+	}
+	
+	@Test
+	public void testLed() {
+		Init init = new Init("key");
+		assertNull(init.getLed());
+	}
+	
+	@Test
+	public void testKey() {
+		Init init = new Init("key");
+		assertEquals("key", init.getKey());
+	}
+	
+	@Test
+	public void testPosition() {
+		Init init = new Init("key");
+		assertEquals(-1, init.getPosition());
+	}
 }

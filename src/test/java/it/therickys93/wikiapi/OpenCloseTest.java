@@ -42,4 +42,52 @@ public class OpenCloseTest {
 		return led;
 	}
 	
+	@Test
+	public void testTypeOne() {
+		OpenClose openClose = new OpenClose("key", 2);
+		assertEquals("Apri/Chiudi", openClose.getType());
+	}
+	
+	@Test
+	public void testTypeTwo() {
+		OpenClose openClose = new OpenClose(createLed());
+		assertEquals("Apri/Chiudi", openClose.getType());
+	}
+	
+	@Test
+	public void testLedOne() {
+		OpenClose openClose = new OpenClose("key", 2);
+		assertNull(openClose.getLed());
+	}
+	
+	@Test
+	public void testLedTwo() {
+		OpenClose openClose = new OpenClose(createLed());
+		assertEquals(createLed().toString(), openClose.getLed().toString());
+	}
+	
+	@Test
+	public void testKeyOne() {
+		OpenClose openClose = new OpenClose("key", 2);
+		assertEquals("key", openClose.getKey());
+	}
+	
+	@Test
+	public void testKeyTwo() {
+		OpenClose openClose = new OpenClose(createLed());
+		assertEquals("key", openClose.getKey());
+	}
+	
+	@Test
+	public void testPositionOne() {
+		OpenClose openClose = new OpenClose("key", 2);
+		assertEquals(2, openClose.getPosition());
+	}
+	
+	@Test
+	public void testPositionTwo() {
+		OpenClose openClose = new OpenClose(createLed());
+		assertEquals(1, openClose.getPosition());
+	}
+	
 }

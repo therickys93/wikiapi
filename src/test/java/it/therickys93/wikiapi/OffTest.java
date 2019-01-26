@@ -40,4 +40,52 @@ public class OffTest {
 		return led;
 	}
 	
+	@Test
+	public void testTypeOne() {
+		Off off = new Off("key", 2);
+		assertEquals("Spegni", off.getType());
+	}
+	
+	@Test
+	public void testTypeTwo() {
+		Off off = new Off(createLed());
+		assertEquals("Spegni", off.getType());
+	}
+	
+	@Test
+	public void testLedOne() {
+		Off off = new Off("key", 2);
+		assertNull(off.getLed());
+	}
+	
+	@Test
+	public void testLedTwo() {
+		Off off = new Off(createLed());
+		assertEquals(createLed().toString(), off.getLed().toString());
+	}
+	
+	@Test
+	public void testKeyOne() {
+		Off off = new Off("key", 2);
+		assertEquals("key", off.getKey());
+	}
+	
+	@Test
+	public void testKeyTwo() {
+		Off off = new Off(createLed());
+		assertEquals("key", off.getKey());
+	}
+	
+	@Test
+	public void testPositionOne() {
+		Off off = new Off("key", 2);
+		assertEquals(2, off.getPosition());
+	}
+	
+	@Test
+	public void testPositionTwo() {
+		Off off = new Off(createLed());
+		assertEquals(2, off.getPosition());
+	}
+	
 }

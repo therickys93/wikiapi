@@ -25,4 +25,28 @@ public class StatusTest {
 		assertNull(status.toJson());
 	}
 	
+	@Test
+	public void testType() {
+		Status status = new Status("key");
+		assertEquals("Status", status.getType());
+	}
+	
+	@Test
+	public void testLed() {
+		Status status = new Status("key");
+		assertNull(status.getLed());
+	}
+	
+	@Test
+	public void testKey() {
+		Status status = new Status("key");
+		assertEquals("key", status.getKey());
+	}
+	
+	@Test
+	public void testPosition(){
+		Status status = new Status("key");
+		assertEquals(-1, status.getPosition());
+	}
+	
 }
