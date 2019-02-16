@@ -20,6 +20,17 @@ public class Status implements Sendable {
 		this.position = -1;
 	}
 
+	public Status(String key, int position) {
+		this(key);
+		this.position = position;
+		this.endpoint = "/status/" + key + "/" + position;
+	}
+
+	public Status(Led led) {
+		this(led.getKey(), led.getPosition());
+		this.led = led;
+	}
+
 	@Override
 	public String endpoint() {
 		return this.endpoint;

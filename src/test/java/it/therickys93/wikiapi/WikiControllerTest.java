@@ -61,6 +61,12 @@ public class WikiControllerTest {
 		assertEquals("", response);
 	}
 	
+	public void testStatusWithPosition() throws IOException {
+		WikiController wikicontroller = new WikiController("http://localhost:8080");
+		String response = wikicontroller.execute(new Status("pippo", 1));
+		assertEquals("", response);
+	}
+	
 	public void testOn() throws IOException{
 		WikiController wikicontroller = new WikiController("http://localhost:3000");
 		String response = wikicontroller.execute(new On("arduino", 0));
