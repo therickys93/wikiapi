@@ -12,10 +12,12 @@ import it.therickys93.wikiapi.controller.On;
 import it.therickys93.wikiapi.controller.OpenClose;
 import it.therickys93.wikiapi.controller.Reset;
 import it.therickys93.wikiapi.controller.Response;
+import it.therickys93.wikiapi.controller.Sensors;
 import it.therickys93.wikiapi.controller.Status;
 import it.therickys93.wikiapi.controller.Upload;
 import it.therickys93.wikiapi.controller.WikiController;
 import it.therickys93.wikiapi.model.House;
+import it.therickys93.wikiapi.model.Sensor;
 
 public class WikiControllerTest {
 	
@@ -106,6 +108,12 @@ public class WikiControllerTest {
 		assertEquals("", response);
 		Response status = Response.parseSuccess(response);
 		assertTrue(status.ok());
+	}
+	
+	public void testSensors() throws IOException {
+		WikiController wikicontroller = new WikiController("http://localhost:8080");
+		String response = wikicontroller.execute(new Sensors(new Sensor("name", "key", 1)));
+		assertEquals("", response);
 	}
 	
 	private House createHouse() {
