@@ -35,7 +35,7 @@ public class SensorsTest {
 	}
 	
 	@Test
-	public void testLed() {
+	public void testSensor() {
 		Sensors sensors = new Sensors("key");
 		assertNull(sensors.getSensor());
 	}
@@ -60,18 +60,20 @@ public class SensorsTest {
 		assertNull(sensors.toJson());
 		assertEquals("Sensors", sensors.getType());
 		assertNull(sensors.getSensor());
+		assertNull(sensors.getLed());
 		assertEquals("key", sensors.getKey());
 		assertEquals(1, sensors.getPosition());
 	}
 	
 	@Test
-	public void testStatusWithLed() {
+	public void testStatusWithSensor() {
 		Sensors sensors = new Sensors(new Sensor("pippo", "key", 2));
 		assertEquals("GET", sensors.method());
 		assertEquals("/sensors/key/2", sensors.endpoint());
 		assertNull(sensors.toJson());
 		assertEquals("Sensors", sensors.getType());
 		assertNull(sensors.getLed());
+		assertNotNull(sensors.getSensor());
 		assertEquals("key", sensors.getKey());
 		assertEquals(2, sensors.getPosition());
 	}
