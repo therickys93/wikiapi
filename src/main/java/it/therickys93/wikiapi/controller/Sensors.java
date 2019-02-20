@@ -14,7 +14,7 @@ public class Sensors implements Sendable {
 	private String key;
 	private int position;
 	
-	public Sensors(String key) {
+	private Sensors(String key) {
 		this.method = "GET";
 		this.endpoint = "/sensors/" + key;
 		this.type = "Sensors";

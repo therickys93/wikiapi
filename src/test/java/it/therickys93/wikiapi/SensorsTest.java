@@ -12,44 +12,44 @@ import it.therickys93.wikiapi.model.Sensor;
 public class SensorsTest {
 	@Test
 	public void testMethod(){
-		Sensors sensors = new Sensors("key");
+		Sensors sensors = new Sensors("key", 1);
 		assertEquals("GET", sensors.method());
 	}
 	
 	@Test
 	public void testEndpoint(){
-		Sensors sensors = new Sensors("key");
-		assertEquals("/sensors/key", sensors.endpoint());
+		Sensors sensors = new Sensors("key", 1);
+		assertEquals("/sensors/key/1", sensors.endpoint());
 	}
 	
 	@Test
 	public void testJson(){
-		Sensors sensors = new Sensors("key");
+		Sensors sensors = new Sensors("key", 1);
 		assertNull(sensors.toJson());
 	}
 	
 	@Test
 	public void testType() {
-		Sensors sensors = new Sensors("key");
+		Sensors sensors = new Sensors("key", 1);
 		assertEquals("Sensors", sensors.getType());
 	}
 	
 	@Test
 	public void testSensor() {
-		Sensors sensors = new Sensors("key");
+		Sensors sensors = new Sensors("key", 1);
 		assertNull(sensors.getSensor());
 	}
 	
 	@Test
 	public void testKey() {
-		Sensors sensors = new Sensors("key");
+		Sensors sensors = new Sensors("key", 1);
 		assertEquals("key", sensors.getKey());
 	}
 	
 	@Test
 	public void testPosition(){
-		Sensors sensors = new Sensors("key");
-		assertEquals(-1, sensors.getPosition());
+		Sensors sensors = new Sensors("key", 1);
+		assertEquals(1, sensors.getPosition());
 	}
 	
 	@Test
