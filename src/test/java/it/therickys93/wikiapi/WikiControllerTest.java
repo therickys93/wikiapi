@@ -15,6 +15,7 @@ import it.therickys93.wikiapi.controller.Response;
 import it.therickys93.wikiapi.controller.Sensors;
 import it.therickys93.wikiapi.controller.Status;
 import it.therickys93.wikiapi.controller.Upload;
+import it.therickys93.wikiapi.controller.Version;
 import it.therickys93.wikiapi.controller.WikiController;
 import it.therickys93.wikiapi.model.House;
 import it.therickys93.wikiapi.model.Sensor;
@@ -113,6 +114,12 @@ public class WikiControllerTest {
 	public void testSensors() throws IOException {
 		WikiController wikicontroller = new WikiController("http://localhost:8080");
 		String response = wikicontroller.execute(new Sensors(new Sensor("name", "key", 1)));
+		assertEquals("", response);
+	}
+	
+	public void testVersion() throws IOException {
+		WikiController wikicontroller = new WikiController("http://localhost");
+		String response = wikicontroller.execute(new Version());
 		assertEquals("", response);
 	}
 	
